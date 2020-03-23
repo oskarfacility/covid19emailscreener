@@ -1,0 +1,31 @@
+---
+# Config File for BCG E-Mail Categorizer
+# You can use (A|B) to match either for A or for B
+# You can use *.* for any characters in between
+# To easily match genders, any following 0-2 letters are matched positive, e.g.
+# "Mediziner" and "Medizinerin" or
+# "Fachangestellte" and "Fachangestellter"
+
+categories:
+  doc:
+    - (A|Ä)rzt
+    - Mediziner
+    - Anästhesist
+    - Gynäkolog
+    - Internist
+    - Chirurg
+    - Radiolog
+  nurse:
+    - Krankenschwester
+    - Pfleger
+    - Hebamme
+    - Entbindungshelfer
+  paramedic:
+    - Sanitäter
+  rescueworker:
+    - Rettungs*.*helfer
+  medicalassistant:
+    - Fachangestellte
+    - Arzthelfer
+  medicaltechnician:
+    - Medizinisch-technische*.*assistent
