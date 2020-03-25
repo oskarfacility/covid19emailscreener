@@ -17,12 +17,14 @@ import (
 	"github.com/kardianos/osext"
 )
 
+// config parser base struct
 type config struct {
 	categories struct {
 		category []string
 	}
 }
 
+// person object for dict
 type person struct {
 	email      string
 	categories []string
@@ -42,6 +44,7 @@ func remove(slice []string, s int) []string {
 	return append(slice[:s], slice[s+1:]...)
 }
 
+// analyse E-Mail file (.eml)
 func analyseFile(filePath string, persons map[string]person, finderConfig map[string]string) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -100,16 +103,13 @@ func analyseFile(filePath string, persons map[string]person, finderConfig map[st
 
 func main() {
 	startOutput := `
-------------------------------------------
-- BCG E-Mail Categorizer | COVID-19 Help -
-------------------------------------------
-In case of an error, please reach out to:
-Johannes Boyne
-(E) boyne.johannes@bcg.com
-(M) +49 170 334 4586
+----------------------
+- E-Mail Categorizer -
+----------------------
 `
 	fmt.Print(startOutput)
 
+	// get folder of execution or if in development, ignore it
 	dir, err := osext.ExecutableFolder()
 	if dir[0:4] == "/var" {
 		dir = ""
@@ -123,7 +123,7 @@ Johannes Boyne
 		log.Fatal(err)
 	}
 
-	// config
+	// parse config
 	yamlDoc, err := ioutil.ReadFile(dir + "config.yml")
 	if err != nil {
 		log.Fatal(err)
@@ -157,7 +157,6 @@ Johannes Boyne
 				}
 			}
 		}
-
 	}
 
 	// e-mail folder
@@ -206,6 +205,7 @@ Johannes Boyne
 	csvwriter.Flush()
 	csvfile.Close()
 
+	// end with some information
 	fmt.Printf("> Analysed %d E-Mails\n", len(files))
 	fmt.Printf("> Wrote output to %s\n\n", csvpath)
 }
