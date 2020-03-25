@@ -2,9 +2,10 @@
 
 Categorize E-Mails based on predefined rules.
 
-As many hospitals and health organisations are facing a shortage of personell
-because of the COVID-19/Corona crisis and publicy asked former nurses, doctors,
-and rescue worker for help, some organisations recieved thousands of e-mails.
+As many hospitals and health organisations are facing a shortage of personell 
+because of the COVID-19/Corona crisis and publicly asked former nurses, 
+doctors, and rescue worker for help, some organisations received thousands 
+of e-mails.
 
 This tool can help to categorize the e-mails based on their content.
 The tool is not perfect, but is doing a good job already at some organizations.
